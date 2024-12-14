@@ -5,6 +5,8 @@ public class RegistrationBean {
     String lname;
     String uname;
     String email;
+    String oldPsw;
+    String newPsw;
     String psw;
     String repetePsw;
 
@@ -44,4 +46,21 @@ public class RegistrationBean {
     public void setRepetePsw(String repetePsw) {
         this.repetePsw = repetePsw;
     }
+
+    public String getOldPsw() {
+        return oldPsw;
+    }
+
+    public void setOldPsw(String oldPsw) {
+        this.oldPsw = oldPsw;
+    }
+
+    public String getNewPsw() {
+        return newPsw;
+    }
+
+    public void setNewPsw(String newPsw) {
+        this.newPsw = newPsw;
+    }
+    
 }

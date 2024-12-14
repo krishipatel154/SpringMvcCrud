@@ -48,4 +48,28 @@ public class RegistrationController {
           }
         return mv;
     }
+    @RequestMapping(value="index.htm", params="loadPage=redirectRegistratin")
+    public String redirectRegistration(){
+        return "registration";
+    }
+    @RequestMapping(value="index.htm", params="loadPage=redirectLogin")
+    public String redirectLogin(){
+        return "login";
+    }
+    @RequestMapping(value="index.htm", params="loadPage=loadForgetPsw")
+    public String loadForgetPsw(){
+        return "forgetPsw";
+    }
+    @RequestMapping(value="index.htm", params="loadPage=forgetPsw")
+    public ModelAndView forgetPsw(RegistrationBean registrationBean){
+        ModelAndView mv = new ModelAndView("forgetPsw");
+        int row = registrationService.updatedData(registrationBean);
+        if(row==0){
+            mv.addObject("process", "passwordNotChanged");
+        }
+        else{
+            mv.addObject("process", "passwordChanged");
+        }
+        return mv;
+    }
 }

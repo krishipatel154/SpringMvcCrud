@@ -22,5 +22,9 @@ public class RegistrationServiceImpl implements RegistrationService{
     public List loadData(RegistrationBean registrationBean) {
         return registrationRepository.loadData(registrationBean);
     }
-    
+
+    @Override
+    public int updatedData(RegistrationBean registrationBean) {
+        return registrationRepository.updatedData(registrationBean);
+    } 
 }

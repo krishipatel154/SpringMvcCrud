@@ -25,5 +25,12 @@ public class RegistrationRepositoryImpl implements RegistrationRepository{
         String sql = "select * from user where email=? && password=?";
         return jdbcTemplate.queryForList(sql, registrationBean.getEmail(), registrationBean.getPsw());
     }
+
+    @Override
+    public int updatedData(RegistrationBean registrationBean) {
+        String sql = "update user set password=? where email=? && password=?";
+        return jdbcTemplate.update(sql, registrationBean.getNewPsw(),registrationBean.getEmail(), registrationBean.getOldPsw());
+
+    }
     
 }

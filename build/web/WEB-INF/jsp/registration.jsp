@@ -51,6 +51,9 @@
         <div>
             <button type="button" onclick="insertData()">Submit</button>
         </div>
+        <div>
+            <p>Already have an account?<span><a href="#" onclick="redirectLogin()">login</a></span></p>
+        </div>
     </form>
 </div>
 

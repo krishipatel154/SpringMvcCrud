@@ -7,7 +7,7 @@
             <input type="email" id="email" placeholder="&nbsp;">
             <span class="label">Email</span>
             <span class="focus-bg"></span>
-             <span id="emailError" class="error"></span>
+            <span id="emailError" class="error"></span>
         </label>
 
         <label for="inp" class="inp">
@@ -25,10 +25,17 @@
         </label>
         <div>
             <button type="button" onclick="login()">Submit</button>
-    </form>
-</div>
+        </div>
+        <div>
+            <a href="#" onclick="loadForgetPsw()">Forget password</a>
+        </div>
+        <div>
+            <p>Don't have an account?<span><a href="#" onclick="redirectRegistratin()">Signup here</a></span>
+        </div>
         <div class="not-found-error-sect">
-    <c:if test="${process eq 'error'}">
-        <p class="not-found-error">User not found!!</p>
-    </c:if>
-</div>
+            <c:if test="${process eq 'error'}">
+                <p class="not-found-error">User not found!!</p>
+            </c:if>
+        </div>
+    </form>
+

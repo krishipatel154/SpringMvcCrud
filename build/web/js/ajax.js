@@ -98,3 +98,50 @@ function login() {
     let params = "&email=" + email + "&psw=" + psw + "&repetePsw=" + repetePsw;
     ajaxCall("index.htm?loadPage=loadLoginPage", "POST", "load", params, false);
 }
+
+function redirectRegistratin() {
+    ajaxCall("index.htm?loadPage=redirectRegistratin", "GET", "load", "", true);
+}
+
+function redirectLogin() {
+    ajaxCall("index.htm?loadPage=redirectLogin", "GET", "load", "", true);
+}
+
+function loadForgetPsw() {
+    ajaxCall("index.htm?loadPage=loadForgetPsw", "GET", "load", "", true);
+}
+
+function forgetPsw() {
+    let email = idCall("email");
+    let oldPsw = idCall("oldPsw");
+    let newPsw = idCall("newPsw");
+    let repetePsw = idCall("repetePsw");
+    document.getElementById('emailError').innerHTML = "";
+    document.getElementById('oldPswError').innerHTML = "";
+    document.getElementById('newPswError').innerHTML = "";
+    document.getElementById('repetePswError').innerHTML = "";
+    let valid = true;
+    
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!email.match(emailPattern)) {
+        document.getElementById('emailError').innerHTML = "Invalid email format";
+        valid = false;
+    }
+    if (oldPsw === "") {
+        document.getElementById('oldPswError').innerHTML = "Password cannot be empty";
+        valid = false;
+    }
+    if (newPsw === "") {
+        document.getElementById('newPswError').innerHTML = "Password cannot be empty";
+        valid = false;
+    }
+    if (newPsw !== repetePsw) {
+        document.getElementById('repetePswError').innerHTML = "Passwords do not match";
+        valid = false;
+    }
+    if (!valid) {
+        return false;
+    }
+    let params = "&email=" + email + "&oldPsw=" + oldPsw + "&newPsw=" + newPsw + "&repetePsw=" + repetePsw;
+    ajaxCall("index.htm?loadPage=forgetPsw", "POST", "load", params, false);
+}
